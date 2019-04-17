@@ -129,7 +129,7 @@
 			<span id="error_span">NO DATA FOR THIS MONTH. PLEASE SELECT ANOTHER MONTH/YEAR.</span>
 			<h3>
 				<span id="trips_date"></span><br>
-				<!--<span id="cur_station">TNP Trips</span><br>-->
+				<span id="cur_station">TNP Trips</span><br>
 				<span id="num_trips"></span><br>
 			</h3>
 		</div>
@@ -320,7 +320,7 @@
 									.on("click", function(d) { 
 										$(".arc").hide();
 										$(".stations").removeClass("clicked_station");
-										//$("#cur_station").text(d.properties.name);
+										$("#cur_station").text(d.properties.name);
 										$("#num_trips").text(
 											(countByStation[d.properties.station_id]/2).toLocaleString(undefined, {maximumFractionDigits: 0}) + " trips originating in this community"
 										);
@@ -335,7 +335,7 @@
 								$("#map").on('mouseup mousemove', function handler(evt) {
 									if (evt.type === 'mouseup') {
 										// click
-										//$("#cur_station").text("All Stations");
+										$("#cur_station").text("All Communities");
 										var cur_trip_total = 0
 										for (i=0; i<heatmap_data.length; i++) { cur_trip_total += +heatmap_data[i].total; };
 										$("#num_trips").text(cur_trip_total.toLocaleString() + " total trips");
@@ -430,7 +430,7 @@
 							};
 							
 							// done
-							//$("#cur_station").text("All Stations");
+							$("#cur_station").text("All Communities");
 							var cur_trip_total = 0;
 							for (i=0; i<heatmap_data.length; i++) { cur_trip_total += +heatmap_data[i].total; };
 							$("#num_trips").text(cur_trip_total.toLocaleString() + " total trips");
@@ -445,7 +445,7 @@
 				var month_text = $("#month_select").find(":selected").text();
 				var year = $("#year_select").find(":selected").val();
 				$("#trips_date").text(month_text + ", " + year);
-				//$("#cur_station").text("");
+				$("#cur_station").text("");
 				$("#num_trips").text("");
 				$(".stations").remove()
 				$(".stations").remove()
